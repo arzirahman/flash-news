@@ -7,10 +7,10 @@ interface CategoryProps {
 }
 
 export default function Category(props: Readonly<CategoryProps>) {
-    const [selectedCategory, setSelectedCategory] = useState('business');
+    const [selectedCategory, setSelectedCategory] = useState('general');
 
     useEffect(() => {
-        const category = getQueryParam('category') ?? 'business';
+        const category = getQueryParam('category') ?? 'general';
         if (category){
             props.onCategoryChange && props.onCategoryChange(category);
             setSelectedCategory(category);

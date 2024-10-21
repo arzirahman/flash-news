@@ -1,1 +1,1 @@
-export const CATEGORIES = ["business", "entertainment", "health", "science", "sports", "technology"]
+export const CATEGORIES = ["general", "business", "entertainment", "health", "science", "sports", "technology"]
