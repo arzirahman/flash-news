@@ -8,7 +8,6 @@ export default function ReadArticle(){
         const jsonPrev = localStorage.getItem('prevArticles');
         if (jsonPrev){
             const prevArticles = JSON.parse(localStorage.getItem('prevArticles') ?? '') ?? [];
-            console.log(prevArticles);
             setPrevArticles(prevArticles);
         }
     }, [])
