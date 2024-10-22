@@ -29,3 +29,9 @@ export function setQueryParam(param: string, value: string) {
     url.searchParams.set(param, value);
     window.history.pushState({}, '', url);
 }
+
+export function removeQueryParam(param: string) {
+    const url = new URL(window.location.href);
+    url.searchParams.delete(param);
+    window.history.pushState({}, '', url);
+}

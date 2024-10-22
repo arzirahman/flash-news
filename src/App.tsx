@@ -6,7 +6,7 @@ import Card from "./components/Card";
 import Category from "./components/Category";
 import ReadArticle from "./components/ReadArticle";
 import { Article, Response } from "./utils/interface";
-import { getQueryParam, setQueryParam } from "./utils/general";
+import { getQueryParam, removeQueryParam, setQueryParam } from "./utils/general";
 
 function App() {
   const [selectedCategory, setSelectedCategory] = useState('');
@@ -50,6 +50,8 @@ function App() {
   const handleCategory = useCallback((category: string) => {
     if (category){
       setNews(Array(10).fill({}));
+      removeQueryParam('search');
+      setSearch('')
       setSelectedCategory(category);
     }
   }, []);
@@ -57,6 +59,7 @@ function App() {
   const handleSearch = useCallback((search: string) => {
     setSearch(search)
     setQueryParam('search', search);
+    removeQueryParam('category')
   }, [])
 
   return (
