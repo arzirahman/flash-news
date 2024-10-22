@@ -9,14 +9,18 @@ export default function TopBar(props: Readonly<TopBarProps>) {
     const [search, setSearch] = useState('');
 
     useEffect(() => {
-        toggleTheme()
+        toggleTheme(true)
     }, []);
 
-    const toggleTheme = useCallback(() => {
+    const toggleTheme = useCallback((checkOnly = false) => {
         const storedTheme = localStorage.getItem('theme') ?? 'light';
-
-        const newTheme = storedTheme === 'dark' ? 'light' : 'dark';
-        setIsDark(storedTheme === 'dark')
+        let newTheme: string;
+        if (checkOnly){
+            newTheme = storedTheme;
+        } else {
+            newTheme = storedTheme === 'dark' ? 'light' : 'dark';
+        }
+        setIsDark(newTheme === 'dark')
         localStorage.setItem('theme', newTheme);
         document.documentElement.setAttribute('data-theme', newTheme);
     }, []);
@@ -27,14 +31,14 @@ export default function TopBar(props: Readonly<TopBarProps>) {
     }
 
     return (
-        <div className='sticky top-0 flex items-center justify-end w-full gap-4 px-12 py-4 glass'>
+        <div className='sticky top-0 flex items-center justify-end w-full gap-4 px-6 py-4 md:px-12 glass'>
             <label className="cursor-pointer label">
                 <span className="hidden">Theme</span>
                 <input
                     type="checkbox"
                     className="toggle toggle-secondary"
                     checked={isDark}
-                    onChange={toggleTheme}
+                    onChange={() => { toggleTheme() }}
                 />
             </label>
             <form onSubmit={handleSearch}>

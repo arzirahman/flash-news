@@ -37,7 +37,7 @@ export default function Card({loading, ...props}: Readonly<CardProps>){
                             <span className="font-semibold text-secondary">{props.author}</span>
                             <span className="text-xs font-semibold opacity-50">{props.source?.name ? props.source?.name : "-"}</span>
                         </div>
-                        <span className="text-sm">{props.publishedAt ? formatDate(props.publishedAt) : "-"}</span>
+                        <span className="text-sm text-end">{props.publishedAt ? formatDate(props.publishedAt) : "-"}</span>
                     </div>
                 </div>
             </> : <div className="flex flex-col w-full h-full gap-4">

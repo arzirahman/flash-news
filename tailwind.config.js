@@ -8,6 +8,9 @@ export default {
     extend: {
       backgroundImage: {
         'gradient': "radial-gradient(circle at top right, theme('colors.primary') 5%, theme('colors.accent') 40%, theme('colors.accent') 70%, theme('colors.primary') 100%)"
+      },
+      screens: {
+        lg: '1150px'
       }
     },
   },

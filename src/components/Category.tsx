@@ -24,9 +24,9 @@ export default function Category(props: Readonly<CategoryProps>) {
     }, [])
 
     return (
-        <div className='flex flex-col gap-6 px-12 pt-4 pb-8'>
-            <span className="text-5xl">Top Headlines</span>
-            <div className="flex items-center gap-2">
+        <div className='flex flex-col min-h-[160px] gap-6 px-6 md:px-12 py-4 overflow-auto'>
+            <span className="text-4xl md:text-5xl">Top Headlines</span>
+            <div className="flex items-center gap-2 overflow-auto no-scrollbar">
                 {CATEGORIES.map((category) => (
                     <button 
                         key={category} 

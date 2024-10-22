@@ -17,7 +17,7 @@ export default function ReadArticle(){
         <div className={`flex flex-col gap-2 ${prevArticles.length === 0 ? 'hidden' : ''}`}>
             <span className="text-2xl font-semibold">Previously Read Articles</span>
             <div className="h-[1px] w-full bg-secondary"></div>
-            <div className="grid grid-cols-5 gap-4 pt-4">
+            <div className="grid grid-cols-1 gap-4 pt-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
                 {prevArticles.map((article) => (
                     <a href={article.url} key={article.title} className="flex flex-col flex-1 gap-4 mb-8 rounded-lg ">
                         <img alt="article" src={article.urlToImage} className="object-cover w-full h-full rounded-lg" />
